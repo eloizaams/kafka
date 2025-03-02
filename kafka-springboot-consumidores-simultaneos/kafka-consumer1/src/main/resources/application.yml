@@ -1,0 +1,7 @@
+server:
+  port: 8080
+
+topicos:
+  chat:
+    request:
+      topic: "chat.request.topic.v1"
