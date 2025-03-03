@@ -3,23 +3,20 @@ package com.eloizaams.kafka_consumer.consumidor;
 import com.eloizaams.kafka_consumer.dto.ChatMessageDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 
-@Service
+//@Service
 public class ChatConsumer {
 
-    @Autowired
+//    @Autowired
     private ObjectMapper objectMapper;
 
-    @KafkaListener(
-            topics = "${topicos.chat.request.topic}",
-            groupId = "chat-consumer-1"
-    )
+//    @KafkaListener(
+//            topics = "${topicos.chat.request.topic}",
+//            groupId = "chat-consumer-unico"
+//    )
     public void consume(String message) throws JsonProcessingException {
         System.out.println("KAFKA CONS 1 ================ " + new Date());
         ChatMessageDto messageDto = objectMapper.readValue(message,ChatMessageDto.class);

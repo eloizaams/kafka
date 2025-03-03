@@ -14,6 +14,9 @@ public class ChatRequestProducer {
     @Value("${topicos.chat.request.topic}")
     private String chatRequestTopic;
 
+    @Value("${topicos.chat.request.topic2}")
+    private String chatRequestTopic2;
+
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -23,6 +26,7 @@ public class ChatRequestProducer {
     public String sendMessage(ChatMessageDTO message) throws JsonProcessingException {
         String conteudo = objectMapper.writeValueAsString(message);
         kafkaTemplate.send(chatRequestTopic, conteudo);
+        kafkaTemplate.send(chatRequestTopic2, conteudo);
         return "Mensagem enviada para processamento";
     }
 }

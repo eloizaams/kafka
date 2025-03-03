@@ -20,7 +20,7 @@ public class ChatConsumer {
 
     @KafkaListener(
             topics = "${topicos.chat.request.topic}",
-            groupId = "chat-consumer-2"
+            groupId = "chat-consumer-unico"
     )
     public void consume(String message) throws JsonProcessingException {
         System.out.println("KAFKA CONS 2 ================ " + new Date());
